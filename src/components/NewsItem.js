@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import '../card.css'
-import { Link } from 'react-router-dom'
 export default class NewsItem extends Component {
     render() {
-        let { title, description, imageUrl, newsUrl } = this.props
+        let { title, description, imageUrl, newsUrl } = this.props;
 
         return (
             <div className="card" style={{ '--clr': '#03a9f4' }}>
@@ -13,7 +12,7 @@ export default class NewsItem extends Component {
                 <div className="content">
                     <h2>{title}</h2>
                     <p>{description}</p>
-                    <Link to={newsUrl} target={`_blank`}>Read More</Link>
+                    <a href={newsUrl} target="_blank">Read More</a>
                 </div>
             </div>
         )
