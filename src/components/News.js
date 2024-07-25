@@ -18,9 +18,7 @@ export default class News extends Component {
     }
 
     fetchData = async (page = 1) => {
-        let API_key = '1265973a155241cf9f1f0398bc7e2d28'; //replace with your key 
-        //goto https://newsapi.org/ for API key
-        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=${API_key}&page=${page}`;
+        let url = `https://newsapi.org/v2/top-headlines?country=in&category=${this.props.category}&apiKey=${this.props.API_key}&page=${page}`;
         this.setState({ loading: true })
         let data = await fetch(url);
         let parsedData = await data.json();
@@ -35,12 +33,14 @@ export default class News extends Component {
     NextBtn = () => {
         this.fetchData(this.state.page + 1)
     };
-
+    capitalizeFirstLetter = (string) => {
+        return string.charAt(0).toUpperCase() + string.slice(1);
+      };
 
     render() {
         return (
             <div className='container'>
-                <h2>Top Headlines</h2>
+                <h2>Top {this.capitalizeFirstLetter(this.props.category)} Headlines</h2>
                 <div className='container'>
                     {this.state.loading && <Loader />}
                     {this.state.articles && this.state.articles.length > 0 ? (
