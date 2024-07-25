@@ -1,9 +1,7 @@
-import React, { Component } from 'react'
+import React from 'react'
 import '../card.css'
-export default class NewsItem extends Component {
-    render() {
-        let { title, description, imageUrl, newsUrl, author, date, source } = this.props;
-
+export default function NewsItem (props) {
+        let { title, description, imageUrl, newsUrl, author, date, source } = props;
         return (
             <div className="card" style={{ '--clr': '#03a9f4' }}>
                 <span className="position-absolute top-0 translate-middle badge rounded-pill text-bg-primary" style={{left : '90%',zIndex:'1'}}>
@@ -19,5 +17,4 @@ export default class NewsItem extends Component {
                 </div>
             </div >
         )
-    }
 }

@@ -1,11 +1,9 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom';
 
-export class Navbar extends Component {
-
-    render() {
+function Navbar(props) {
         return (
-            <nav className={`navbar navbar-expand-lg navbar-${this.props.mode} bg-${this.props.mode}`}>
+            <nav className={`navbar navbar-expand-lg navbar-${props.mode} bg-${props.mode}`}>
                 <div className="container-fluid">
                     <Link className="navbar-brand" to="/Quick-News-React-App">QuickNews</Link>
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -27,8 +25,8 @@ export class Navbar extends Component {
                             <li className="nav-item"><Link className="nav-link" to="/Quick-News-React-App/Sports">Sports</Link></li>
                             <li className="nav-item"><Link className="nav-link" to="/Quick-News-React-App/Science">Science</Link></li>
                         </ul>
-                        <div className={`form-check form-switch text-${this.props.mode === 'light' ? 'dark' : 'light'}`}>
-                            <input className="form-check-input" type="checkbox" onClick={this.props.toggleMode} role="switch" id="flexSwitchCheckDefault" />
+                        <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark' : 'light'}`}>
+                            <input className="form-check-input" type="checkbox" onClick={props.toggleMode} role="switch" id="flexSwitchCheckDefault" />
                             <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Enable Dark Mode</label>
                         </div>
                     </div>
@@ -36,6 +34,5 @@ export class Navbar extends Component {
             </nav>
         )
     }
-}
 
 export default Navbar;
